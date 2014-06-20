@@ -9,15 +9,23 @@ export class LoggerRegistry {
     [name: string]: Logger
   } = {};
 
+  private static factory: LoggerFactory;
+
   static logger(name: string): Logger {
     if (!LoggerRegistry.loggers[name]) {
       LoggerRegistry.loggers[name] = new DelegateLogger(name);
+
+      if (LoggerRegistry.factory) {
+        (<DelegateLogger> LoggerRegistry.loggers[name]).delegate = LoggerRegistry.factory(name);
+      }
     }
 
     return LoggerRegistry.loggers[name];
   }
 
   static configure(factory: LoggerFactory) {
+    LoggerRegistry.factory = factory;
+
     for (var name in LoggerRegistry.loggers) {
       //noinspection JSUnfilteredForInLoop
       (<DelegateLogger> LoggerRegistry.loggers[name]).delegate = factory(name);
