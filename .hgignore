@@ -1,0 +1,7 @@
+syntax: glob
+
+*.iml
+.idea/*
+build/*
+node_modules/*
+
