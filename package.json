@@ -1,6 +1,6 @@
 {
   "name": "nodejs-bunyan-logger-registry",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A registry for the creating and consumption of Bunyan loggers",
   "main": "index.js",
   "scripts": {
