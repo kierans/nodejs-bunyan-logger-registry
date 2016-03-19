@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-bunyan-logger-registry",
+  "name": "@kierans777/nodejs-bunyan-logger-registry",
   "version": "0.0.2",
   "description": "A registry for the creating and consumption of Bunyan loggers",
   "main": "index.js",
